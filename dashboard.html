@@ -3011,6 +3011,55 @@
         color: white !important;
         border-color: var(--green-dark) !important;
       }
+
+      .member-profile-modal,
+      .profile-modal,
+      .student-profile-modal,
+      .mpanel {
+        max-height: 90vh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      .member-profile-modal .profile-body,
+      .profile-modal .profile-body,
+      .student-profile-modal .profile-body,
+      .mpanel-body,
+      .mpanel-content {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        max-height: calc(90vh - 260px) !important;
+        padding-left: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--green-main) transparent;
+      }
+
+      .member-profile-modal .profile-body::-webkit-scrollbar,
+      .profile-modal .profile-body::-webkit-scrollbar,
+      .student-profile-modal .profile-body::-webkit-scrollbar,
+      .mpanel-body::-webkit-scrollbar,
+      .mpanel-content::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .member-profile-modal .profile-body::-webkit-scrollbar-thumb,
+      .profile-modal .profile-body::-webkit-scrollbar-thumb,
+      .student-profile-modal .profile-body::-webkit-scrollbar-thumb,
+      .mpanel-body::-webkit-scrollbar-thumb,
+      .mpanel-content::-webkit-scrollbar-thumb {
+        background: var(--green-main);
+        border-radius: 20px;
+      }
+
+      .member-profile-modal .profile-body::-webkit-scrollbar-track,
+      .profile-modal .profile-body::-webkit-scrollbar-track,
+      .student-profile-modal .profile-body::-webkit-scrollbar-track,
+      .mpanel-body::-webkit-scrollbar-track,
+      .mpanel-content::-webkit-scrollbar-track {
+        background: transparent;
+      }
     </style>
   </head>
   <body>
@@ -3018,7 +3067,6 @@
     <div class="sidebar" id="sidebar">
       <div class="sidebar-brand">
         <img src="images/logo.png" alt="مدد" class="sidebar-logo-img" />
-        <span class="sidebar-brand-text">مدد</span>
       </div>
       <nav class="sidebar-nav" id="sidebarNav"></nav>
       <div class="sidebar-footer">
@@ -3195,7 +3243,7 @@
       onclick="if (event.target === this) this.classList.remove('show');"
     >
       <div class="modal-box" style="max-width: 440px">
-        <div class="modal-title">طلب إرشاد</div>
+        <div class="modal-title">طلب إرشاد أكاديمي</div>
         <div class="form-group">
           <label class="form-label">اختر الشخص</label>
           <select class="form-select" id="reqTarget"></select>
@@ -8491,7 +8539,7 @@
         saveData("mentorHelped", helped + 1);
         addNotification(
           "تم إرسال ردك",
-          "ردّك وصل إلى الطالب " + studentName,
+          "ردّك الأكاديمي وصل إلى الطالب " + studentName,
           "success",
         );
         showToast("تم إرسال ردك");
